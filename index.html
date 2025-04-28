@@ -1,0 +1,278 @@
+<!--Index file-->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Namit_Footwear</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    a {
+      text-decoration: none;
+      /* Removes the underline */
+      color: inherit;
+      /* Optional: Keeps the default text color */
+    }
+
+    a {
+      color: black;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 12px;
+      /* Adjusted padding */
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--navbar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 60px;">
+    <div class="container-fluid" style="background-color:#eaa0a2;height: 60px;position:static">
+      <a class="navbar-brand" href="#">
+        <img src="image\Brand.jpg" alt="Bootstrap" width="30" height="24">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="AboutUs.html" style="color: white;">AboutUs</a>
+          </li>
+          <li class="nav-item contact">
+            <a class="nav-link" href="ContactUs.html" style="color: white;">ContactUs</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="color: white;">
+              Category
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Men_section.html"><b>Men</b></a></li><!--men section-->
+              <li><a class="dropdown-item" href="Women_section.html">Women</a></li><!--women section-->
+              <li><a class="dropdown-item" href="Child_section.html">Child</a></li><!--child section-->
+              <li><a class="dropdown-item" href="Sport_section.html">Sport</a></li><!--sport section-->
+              <li><a class="dropdown-item" href="Stylish_section.html">Stylish</a></li><!--stylish section-->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link" style="color: white;">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="my_orders.html" class="nav-link" style="color: white;">My_Orders</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <!-- Add cart -->
+        <li class="nav-item">
+          <a href="cart.html" class="cart-icon" style="position: relative;">
+            <img src="image\cart.png" alt="Cart" width="30" height="30">
+            <span id="cart-count" class="cart-count">0</span> <!-- Added cart count -->
+          </a>
+        </li>
+        <!-- End Add cart -->
+
+      </div>
+    </div>
+  </nav>
+  <!--navbar end-->
+  <!--carousel section-->
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+        aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+        aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+        aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="image\img1.avif" class="d-block w-100" alt="..." height="420">
+      </div>
+      <div class="carousel-item">
+        <img src="image\img2.webp" class="d-block w-100" alt="..." height="420">
+      </div>
+      <div class="carousel-item">
+        <img src="image\img3.avif" class="d-block w-100" alt="..." height="420">
+      </div>
+      <div class="carousel-item">
+        <img src="image\img5.avif" class="d-block w-100" alt="..." height="420">
+      </div>
+      <div class="carousel-item">
+        <img src="image\img6.webp" class="d-block w-100" alt="..." height="420">
+      </div>
+      <div class="carousel-item">
+        <img src="image\img4.avif" class="d-block w-100" alt="..." height="420">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="type">
+    <div class="men">
+      <a href="Men_section.html">
+        <img src="image\men.webp" alt="" style="border-radius:50%; width: 150px; height: 150px;">
+
+        <h5 style="text-decoration: none;">
+          <center>Men</center>
+        </h5>
+      </a>
+    </div>
+    <div class="women">
+      <a href="Women_Section.html">
+        <img src="image\women.webp" alt="" style="border-radius:50%; width: 150px; height: 150px;">
+        <h5>
+          <center>Women</center>
+        </h5>
+      </a>
+    </div>
+    <div class="child">
+      <a href="Child_Section.html">
+        <img src="image\child.avif" alt="" style="border-radius:50%; width: 150px; height: 150px;">
+        <h5>
+          <center>child</center>
+        </h5>
+      </a>
+    </div>
+    <div class="sport">
+      <a href="Sport_Section.html">
+        <img src="image\sport.webp" alt="" style="border-radius:50%; width: 150px; height: 150px;">
+        <h5>
+          <center>Sport</center>
+        </h5>
+      </a>
+    </div>
+    <div class="stylish">
+      <a href="Stylish_Section.html">
+        <img src="image\stylish.avif" alt="" style="border-radius:50%; width: 150px; height: 150px;">
+        <h5>
+          <center>Stylish</center>
+        </h5>
+      </a>
+    </div>
+  </div>
+  <!--Product section-->
+  <!-- <h1 style="text-align: center; margin-top:10px; margin-bottom: 20px;"><i>Our Products</i></h1> -->
+  <div class="product-grid" id="product-grid"></div>
+  <script src="Product.js"></script>
+  <!--Product section End-->
+
+  <!--footer-->
+  <div class="footer">
+    <div class="footer1">
+      <p>Welcome namit ecom store</p>
+    </div>
+    <div class="paymode">
+      <h4>Payment Mode</h4>
+      <img src="image/payment.jpg" alt="payment" height="100px" />
+    </div>
+    <div class="Shopping">
+      <h4>Shoping</h4>
+      <h5>Men store</h5>
+      <h5> Women store</h5>
+      <h5> sport store</h5>
+      <h5> stylish store</h5>
+    </div>
+    <div class="Experience">
+      <h4>Experience</h4>
+      <h5>Contact Us</h5>
+      <h5>Payment Method</h5>
+      <h5>Delivery</h5>
+      <h5>Return and Exchange</h5>
+    </div>
+  </div>
+  <!--footer End-->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+  <script>
+    document.querySelector(".d-flex").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      let searchQuery = document.querySelector(".form-control").value.toLowerCase().trim();
+
+      // Mapping keywords to pages
+      let categoryMapping = {
+        "men": "Men_section.html",
+        "men shoes": "Men_section.html",
+        "women": "Women_section.html",
+        "kids": "Child_Section.html",
+        "sport": "Sport_section.html",
+        "sports shoes": "Sport_section.html",
+        "stylish": "Stylish_section.html",
+        "stylish shoes": "Stylish_section.html"
+      };
+
+      // Find the correct page based on search
+      let targetPage = categoryMapping[searchQuery];
+
+      if (targetPage) {
+        window.location.href = targetPage; // Redirect to the correct page
+      } else {
+        alert("Category not found!"); // Handle invalid searches
+      }
+    });
+
+    /////////////////
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById("cart-count").textContent = totalItems;
+    }
+    updateCartCount();
+
+  </script>
+
+</body>
+
+</html>

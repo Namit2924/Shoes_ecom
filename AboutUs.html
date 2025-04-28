@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            background-color: #eaa0a2;
+            /* Matching header & footer color */
+            padding: 10px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            /* Reduced spacing */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            /* Adjusted padding */
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .navbar .cart-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* About Us Section */
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            text-align: center;
+            background: linear-gradient(135deg, #eaa0a2, #2c3e50);
+            /* Matching theme */
+            color: white;
+            padding: 50px 20px;
+            margin-top: 70px;
+        }
+
+        .about-container {
+            max-width: 800px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .about-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .about-container p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #2c3e50;
+            /* Matching navbar */
+            color: white;
+            font-size: 1rem;
+            position: relative;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="ContactUs.html">Contact Us</a>
+        <a href="login.html">Login</a>
+        <a href="cart.html" class="cart-icon">
+            <img src="image/cart.png" alt="Cart">
+        </a>
+    </nav>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="about-container" id="about-container">
+            <h1>About Us</h1>
+            <p id="about-text"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Our Brand. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Typing effect for About Us text
+            const aboutText = document.getElementById("about-text");
+            const textContent = "We are a passionate team committed to providing top-quality products and services. Our mission is to bring style, comfort, and affordability together, ensuring our customers always get the best.";
+            let index = 0;
+
+            function typeText() {
+                if (index < textContent.length) {
+                    aboutText.innerHTML += textContent.charAt(index);
+                    index++;
+                    setTimeout(typeText, 30);
+                }
+            }
+
+            typeText();
+
+            // Smooth fade-in effect for the about section
+            const aboutContainer = document.getElementById("about-container");
+            setTimeout(() => {
+                aboutContainer.classList.add("show");
+            }, 500);
+        });
+    </script>
+
+</body>
+
+</html>

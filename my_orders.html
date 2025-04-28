@@ -1,0 +1,71 @@
+<!-- My Orders Page (my_orders.html) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .order-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .navbar {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+         
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 60px;">
+        <div class="container-fluid" style="background-color:#eaa0a2;height: 60px;">
+            <a class="navbar-brand" href="#">
+                <img src="image/Brand.jpg" alt="Brand Logo" width="30" height="24">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" style="color: white;">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: white;">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: white;">Contact Us</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link" style="color: white;">Login</a></li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <a href="cart.html" class="cart-icon" style="position: relative;">
+                    <img src="image/cart.png" alt="Cart" width="30" height="30">
+                    <span id="cart-count" class="badge bg-danger"
+                        style="position: absolute; top: -5px; right: -10px;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <h2>My Orders</h2>
+    <div id="ordersList"></div>
+
+
+    <script src="my_orders.js"></script> <!-- Include your JS file -->
+</body>
+
+</html>

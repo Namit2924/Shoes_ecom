@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men_Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .container-fluid {
+            max-width: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card .details {
+            padding: 16px;
+        }
+
+        .product-card .details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .product-card .details p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        .product-card .details .price {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 16px;
+        }
+
+        .product-card .details button {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1rem;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .details button:hover {
+            background-color: #2980b9;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: gray;
+            margin-right: 5px;
+        }
+
+        .discounted-price {
+            font-weight: bold;
+            color: green;
+        }
+
+        .discount-badge {
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 3px 6px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 60px;">
+        <div class="container-fluid" style="background-color:#eaa0a2;height: 60px;">
+            <a class="navbar-brand" href="#">
+                <img src="image/Brand.jpg" alt="Brand Logo" width="30" height="24">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" style="color: white;">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: white;">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: white;">Contact Us</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link" style="color: white;">Login</a></li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <a href="cart.html" class="cart-icon" style="position: relative;">
+                    <img src="image/cart.png" alt="Cart" width="30" height="30">
+                    <span id="cart-count" class="badge bg-danger"
+                        style="position: absolute; top: -5px; right: -10px;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="product-grid" id="product-grid"></div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        async function fetchMenProducts() {
+            try {
+                const response = await fetch("Json_file/men.json");
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                const data = await response.json();
+
+                const products = data.products;
+                if (!Array.isArray(products)) throw new Error("Invalid JSON format");
+
+                document.getElementById("product-grid").innerHTML = products.map(product => {
+                    const discountAmount = (product.price * product.discount) / 100;
+                    const discountedPrice = (product.price - discountAmount).toFixed(2);
+
+                    return `
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.name}">
+                            <div class="details">
+                                <h3>${product.name}</h3>
+                                <p>${product.description.substring(0, 50)}...</p>
+                                <div class="price">
+                                    <span class="original-price">₹${product.price.toFixed(2)}</span>
+                                    <span class="discounted-price">₹${discountedPrice}</span>
+                                    <span class="discount-badge">-${product.discount}%</span>
+                                </div>
+                                <button class="add-to-cart" data-id="${product.id}" data-name="${product.name}" data-price="${discountedPrice}" data-image="${product.image}">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
+
+                attachCartListeners();
+                updateCartCount();
+            } catch (error) {
+                console.error("Error fetching men's products:", error);
+            }
+        }
+
+        function addToCart(event) {
+            const button = event.target;
+            const productId = button.dataset.id;
+            const productName = button.dataset.name;
+            const productPrice = parseFloat(button.dataset.price);
+            const productImage = button.dataset.image;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ id: productId, name: productName, price: productPrice, quantity: 1, image: productImage });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${productName} added to cart!`);
+            updateCartCount();
+        }
+
+        function attachCartListeners() {
+            document.querySelectorAll(".add-to-cart").forEach(button => {
+                button.addEventListener("click", addToCart);
+            });
+        }
+
+        function updateCartCount() {
+            document.getElementById("cart-count").textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        fetchMenProducts();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

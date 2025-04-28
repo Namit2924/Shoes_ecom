@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Product Cards with API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card .details {
+            padding: 16px;
+        }
+
+        .product-card .details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .product-card .details p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        .product-card .details .price {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 16px;
+        }
+
+        .product-card .details button {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1rem;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .details button:hover {
+            background-color: #2980b9;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; margin-bottom: 20px;">Our Products</h1>
+    <div class="product-grid" id="product-grid"></div>
+    <div id="loading" class="loading">Loading products...</div>
+
+    <script>
+        const apiEndpoint = "Category.json"; // Replace with your API URL
+
+        const productGrid = document.getElementById("product-grid");
+        const loadingIndicator = document.getElementById("loading");
+
+        // Function to fetch products from API
+        async function fetchProducts() {
+            try {
+                // Fetch data from the API
+                const response = await fetch(apiEndpoint);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const products = await response.json();
+
+                // Generate product cards
+                productGrid.innerHTML = products
+                    .slice(0, 8) // Display only the first 8 products
+                    .map(product => `
+            <div class="product-card">
+              <img src="${product.image}" alt="${product.title}">
+              <div class="details">
+                <h3>${product.title}</h3>
+                <p>${product.description.substring(0, 50)}...</p>
+                <div class="price">$${product.price}</div>
+                <button>Add to Cart</button>
+              </div>
+            </div>
+          `).join("");
+
+                // Hide the loading indicator
+                loadingIndicator.style.display = "none";
+            } catch (error) {
+                console.error("Error fetching products:", error);
+                loadingIndicator.innerText = "Failed to load products. Please try again.";
+            }
+        }
+
+        // Fetch products when the page loads
+        fetchProducts();
+    </script>
+</body>
+
+</html>

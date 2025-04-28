@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Men's Running Shoes",
+      "description": "Lightweight and comfortable running shoes for daily wear.",
+      "price": 2500,
+      "discount": 10,
+      "image": "image/mens image/Men's Running Shoes.jpeg"
+    },
+    {
+      "id": "2",
+      "name": "Men's Formal Leather Shoes",
+      "description": "Elegant leather shoes perfect for office and formal occasions.",
+      "price": 3800,
+      "discount": 15,
+      "image": "image/mens image/s.jpeg"
+    },
+    {
+      "id": "3",
+      "name": "Men's Sneakers",
+      "description": "Trendy and stylish sneakers with high durability.",
+      "price": 3200,
+      "discount": 12,
+      "image": "image/mens image/Men's Sneakers.jpeg"
+    },
+    {
+      "id": "4",
+      "name": "Men's Hiking Boots",
+      "description": "Sturdy and comfortable boots for outdoor adventures.",
+      "price": 4500,
+      "discount": 8,
+      "image": "image/mens image/Men's Hiking Boots.jpeg"
+    },
+    {
+      "id": "5",
+      "name": "Men's Loafers",
+      "description": "Casual and slip-on loafers for everyday wear.",
+      "price": 2900,
+      "discount": 10,
+      "image": "image/mens image/Men's Loafers.jpeg"
+    },
+    {
+      "id": "6",
+      "name": "Men's Chelsea Boots",
+      "description": "Classic Chelsea boots for a sleek and modern look.",
+      "price": 5200,
+      "discount": 14,
+      "image": "image/mens image/Men's Chelsea Boots.jpeg"
+    },
+    {
+      "id": "7",
+      "name": "Men's High-top Sneakers",
+      "description": "Stylish high-top sneakers with great ankle support.",
+      "price": 3500,
+      "discount": 12,
+      "image": "image/mens image/Men's High-top Sneakers.jpeg"
+    },
+    {
+      "id": "8",
+      "name": "Men's Derby Shoes",
+      "description": "Classic Derby shoes, ideal for formal and semi-formal attire.",
+      "price": 4000,
+      "discount": 10,
+      "image": "image/mens image/Men's Derby Shoes.jpeg"
+    },
+    {
+      "id": "9",
+      "name": "Men's Slip-On Shoes",
+      "description": "Comfortable slip-on shoes for casual wear.",
+      "price": 2800,
+      "discount": 10,
+      "image": "image/mens image/Men's Slip-On Shoes.jpeg"
+    },
+    {
+      "id": "10",
+      "name": "Men's Sports Shoes",
+      "description": "Performance sports shoes designed for agility and speed.",
+      "price": 3300,
+      "discount": 15,
+      "image": "image/mens image/Men's Sports Shoes.jpeg"
+    },
+    {
+      "id": "11",
+      "name": "Men's Monk Strap Shoes",
+      "description": "Stylish monk strap shoes for a sophisticated look.",
+      "price": 4700,
+      "discount": 12,
+      "image": "image/mens image/Men's Monk Strap Shoes.jpeg"
+    },
+    {
+      "id": "12",
+      "name": "Men's Casual Canvas Shoes",
+      "description": "Light and breathable canvas shoes for everyday wear.",
+      "price": 2600,
+      "discount": 10,
+      "image": "image/mens image/Men's Casual Canvas Shoes.jpeg"
+    },
+    {
+      "id": "13",
+      "name": "Men's Brogue Shoes",
+      "description": "Elegant brogue shoes with detailed craftsmanship.",
+      "price": 4800,
+      "discount": 15,
+      "image": "image/mens image/Men's Brogue Shoes.jpeg"
+    },
+    {
+      "id": "14",
+      "name": "Men's Moccasins",
+      "description": "Comfortable and stylish moccasins for all-day wear.",
+      "price": 3100,
+      "discount": 10,
+      "image": "image/mens image/Men's Moccasins.jpeg"
+    },
+    {
+      "id": "15",
+      "name": "Men's Work Boots",
+      "description": "Durable work boots for tough outdoor conditions.",
+      "price": 5400,
+      "discount": 8,
+      "image": "image/mens image/Men's Work Boots.jpeg"
+    }
+  ]
+}

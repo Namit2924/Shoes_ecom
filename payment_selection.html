@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h2>Select Payment Method</h2>
+    <div class="payment-options">
+        <label><input type="radio" name="payment" value="paypal"> <img src="image/paypal.png" alt="PayPal"></label>
+        <label><input type="radio" name="payment" value="mastercard"> <img src="image/mastercard.png"
+                alt="MasterCard"></label>
+        <label><input type="radio" name="payment" value="visa"> <img src="image/visa.png" alt="Visa"></label>
+        <label><input type="radio" name="payment" value="maestro"> <img src="image/maestro.png" alt="Maestro"></label>
+        <label><input type="radio" name="payment" value="applepay"> <img src="image/applepay.png"
+                alt="Apple Pay"></label>
+        <label><input type="radio" name="payment" value="amazonpay"> <img src="image/amazonpay.png"
+                alt="Amazon Pay"></label>
+        <label><input type="radio" name="payment" value="googlepay"> <img src="image/googlepay.png"
+                alt="Google Pay"></label>
+        <label><input type="radio" name="payment" value="stripe"> <img src="image/stripe.png" alt="Stripe"></label>
+        <label><input type="radio" name="payment" value="cod"> <span>Cash on Delivery</span></label>
+    </div>
+    <button id="proceed-btn">Proceed</button>
+
+    <script src="payment.js"></script>
+</body>
+
+</html>

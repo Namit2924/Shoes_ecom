@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .container-fluid {
+            max-width: 100%;
+        }
+        
+        main {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        
+        .cart-summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .buy-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            padding: 20px;
+        }
+
+        .payment-options img {
+            width: 70px;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+
+        .payment-options img:hover {
+            border-color: green;
+        }
+        .remove-btn {
+            background-color: #dc3545; /* Red color */
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .remove-btn:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 60px;">
+            <div class="container-fluid" style="background-color:#eaa0a2;height: 60px;">
+                <a class="navbar-brand" href="#">
+                    <img src="image/Brand.jpg" alt="Brand Logo" width="30" height="24">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="index.html" style="color: white;">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="color: white;">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="color: white;">Contact Us</a></li>
+                        <li class="nav-item"><a href="login.html" class="nav-link" style="color: white;">Login</a></li>
+                    </ul>
+                    <a href="cart.html" class="cart-icon" style="position: relative;">
+                        <img src="image/cart.png" alt="Cart" width="30" height="30">
+                        <span id="cart-count" 
+                              style="position: absolute; top: -5px; right: -10px; background: red; color: white; border-radius: 50%; padding: 2px 8px; font-size: 14px; display: none;">
+                        </span>
+                    </a>
+                    
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+    </header>
+
+    <main>
+        <center><h1>Your Shopping Cart</h1></center>
+        <div id="cart-container">
+            <div id="cart-items">
+                <p>Your cart is empty</p>
+            </div>
+            <!-- <div class="cart-summary">
+                <h2>Total: $<span id="total-price">0.00</span></h2>
+                <button class="buy-btn" onclick="openAddressModal()">Buy Now</button>
+            </div> -->
+        </div>
+       
+
+    </main>
+
+    <!-- Address Modal -->
+    <div id="addressModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3>Enter Delivery Address</h3>
+                <form id="addressForm">
+                    <input type="text" id="fullName" class="form-control mb-2" placeholder="Full Name" required>
+                    <input type="text" id="address" class="form-control mb-2" placeholder="Address" required>
+                    <input type="text" id="city" class="form-control mb-2" placeholder="City" required>
+                    <input type="text" id="zip" class="form-control mb-2" placeholder="ZIP Code" required>
+                    <button type="button" class="btn btn-primary" onclick="openPayment()">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content p-3">
+            <h3 class="text-center">Choose Payment Method</h3>
+            <div class="d-flex flex-column gap-2">
+                <button class="btn btn-primary w-100" onclick="selectPaymentMethod('Credit Card')">Credit Card</button>
+                <button class="btn btn-success w-100" onclick="selectPaymentMethod('PayPal')">PayPal</button>
+                <button class="btn btn-warning w-100" onclick="selectPaymentMethod('Google Pay')">Google Pay</button>
+                <button class="btn btn-dark w-100" onclick="selectPaymentMethod('Apple Pay')">Apple Pay</button>
+                <button class="btn btn-secondary w-100" onclick="selectPaymentMethod('Cash on Delivery')">Cash on Delivery</button>
+
+                <!-- UPI Payment -->
+                <button class="btn btn-info w-100 mt-2" onclick="selectPaymentMethod('UPI')">Pay via UPI</button>
+
+                <!-- PhonePe Payment -->
+                <button class="btn btn-purple w-100 mt-2" style="background-color: #5f259f; color: white;" onclick="selectPaymentMethod('PhonePe')">Pay via PhonePe</button>
+            </div>
+
+            <!-- Dynamic Payment Input -->
+            <div id="paymentDetails" class="mt-3"></div>
+
+            <button class="btn btn-success w-100 mt-3" onclick="confirmPayment()">Complete Payment</button>
+        </div>
+    </div>
+</div>
+
+    <script>
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById("cart-count").textContent = totalItems;
+        }
+        updateCartCount();
+    </script>
+
+    <script src="cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

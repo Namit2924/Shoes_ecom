@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Men's Running Shoes",
+      "description": "Lightweight and durable running shoes.",
+      "price": 2500,
+      "discount": 15,
+      "image": "image/mens image/Men's Running Shoes.jpeg"
+    },
+    {
+      "id": "2",
+      "name": "Women's Sneakers",
+      "description": "Trendy sneakers for everyday wear.",
+      "price": 1800,
+      "discount": 10,
+      "image": "image/Women image/3.jpeg"
+    },
+    {
+      "id": "3",
+      "name": "Men's Formal Shoes",
+      "description": "Classic leather formal shoes for office and events.",
+      "price": 3000,
+      "discount": 20,
+      "image": "image/mens image/s.jpeg"
+    },
+    {
+      "id": "4",
+      "name": "Women's Heels",
+      "description": "Elegant high heels for a stylish look.",
+      "price": 2200,
+      "discount": 18,
+      "image": "image/Women image/14.jpeg"
+    },
+    {
+      "id": "5",
+      "name": "Unisex Casual Shoes",
+      "description": "Comfortable casual shoes for everyday use.",
+      "price": 2000,
+      "discount": 12,
+      "image": "image/Stylish image/unisex causal.jpeg"
+    }
+  ]
+}
