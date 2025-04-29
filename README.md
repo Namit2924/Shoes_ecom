@@ -1,1 +1,1 @@
-# Shoes_ecom
+A responsive and user-friendly frontend for an online shoe store, built using HTML, CSS, JavaScript, and React. The interface includes dynamic product listings, filtering options, a shopping cart feature, and intuitive navigation. Designed to provide a smooth user experience across all devices, simulating a modern online shopping platform.
